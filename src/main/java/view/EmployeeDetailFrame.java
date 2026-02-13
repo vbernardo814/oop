@@ -15,7 +15,7 @@ import java.awt.*;
 public class EmployeeDetailFrame extends BaseFrame {
     private final Employee employee;
 
-    // We pass the Employee OBJECT here - this is clean OOP
+    
     public EmployeeDetailFrame(Employee employee) {
         super("Employee Details - " + employee.getId(), 500, 600);
         this.employee = employee;
@@ -82,3 +82,4 @@ public class EmployeeDetailFrame extends BaseFrame {
     }
     
 }
+
