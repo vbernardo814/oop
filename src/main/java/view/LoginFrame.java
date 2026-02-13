@@ -63,8 +63,6 @@ public class LoginFrame extends BaseFrame {
         String user = txtUsername.getText();
         String pass = new String(txtPassword.getPassword());
 
-        // For now, let's use a simple check. 
-        // Later, this can call a 'UserService' for better Abstraction.
         if (user.equals("admin") && pass.equals("1234")) {
             JOptionPane.showMessageDialog(this, "Login Successful!");
             this.dispose(); // Close login
@@ -75,3 +73,4 @@ public class LoginFrame extends BaseFrame {
     }
     
 }
+
