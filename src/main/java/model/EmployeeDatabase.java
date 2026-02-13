@@ -14,17 +14,16 @@ import java.util.*;
 public class EmployeeDatabase {
     private static List<Employee> employeeList = new ArrayList<>();
 
-    // REPLACE YOUR OLD LOAD METHOD WITH THIS ONE:
     public static void load(String path) {
         // This will show you EXACTLY where the computer is looking for the file
         System.out.println("Attempting to load file from: " + new File(path).getAbsolutePath());
         
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            br.readLine(); // Skip header
+            br.readLine(); 
             int count = 0;
             String line;
             while ((line = br.readLine()) != null) {
-                // Splits by comma, but ignores commas inside quotes
+                
                 String[] data = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                 employeeList.add(new Employee(data));
                 count++;
@@ -48,3 +47,4 @@ public class EmployeeDatabase {
         return null; 
     }
 }
+
