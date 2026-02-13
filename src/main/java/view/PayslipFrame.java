@@ -40,7 +40,8 @@ public class PayslipFrame extends BaseFrame {
 
     @Override
     protected void initUI() {
-        // Handled in constructor for this simple view
+        
     }
     
 }
+
