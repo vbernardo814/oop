@@ -33,20 +33,18 @@ public class Employee {
     // 2. CONSTRUCTOR
     public Employee(String[] data) {
         // Basic Parsing from your specific CSV columns
-        this.id = data[0];         // Employee Number
-        this.firstName = data[1];  // First Name
-        this.lastName = data[2];   // Last Name
+        this.id = data[0];         
+        this.firstName = data[1];  
+        this.lastName = data[2];   
         this.contactInfo = data[3];
-        this.position = data[4];   // Position
-        this.department = data[5];  // New
-        this.birthday = data[6];    // New
-        this.sss = data[7];         // New
-        this.philHealth = data[8];  // New
-        this.tin = data[9];         // New
+        this.position = data[4];   
+        this.department = data[5]; 
+        this.birthday = data[6];    
+        this.sss = data[7];         
+        this.philHealth = data[8];  
+        this.tin = data[9];         
         this.pagibig = data[10];
         
-        // Since your CSV stops at index 10 (Pag-IBIG), 
-        // we provide default values for salary to prevent crashes.
         this.basicSalary = 25000.0; 
         this.hourlyRate = 150.0;
 
@@ -55,7 +53,7 @@ public class Employee {
         this.standardDeductions.add(new SSSDeduction());
     }
 
-    // 3. THE METHODS (Check your braces here!)
+    // 3. THE METHODS 
     public double getTotalDeductions(double grossIncome) {
         double total = 0;
         
@@ -83,3 +81,4 @@ public class Employee {
     public double getHourlyRate() { return hourlyRate; }
     public double getBasicSalary() { return basicSalary; }
 }
+
