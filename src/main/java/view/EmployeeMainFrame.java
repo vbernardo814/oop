@@ -12,9 +12,9 @@ import model.Employee;
 import model.EmployeeDatabase;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter; // New Import
-import javax.swing.event.DocumentEvent; // New Import
-import javax.swing.event.DocumentListener; // New Import
+import javax.swing.table.TableRowSorter; 
+import javax.swing.event.DocumentEvent; 
+import javax.swing.event.DocumentListener; 
 import java.awt.*;
 
 public class EmployeeMainFrame extends BaseFrame {
@@ -33,7 +33,7 @@ public class EmployeeMainFrame extends BaseFrame {
         setLayout(new BorderLayout());
 
         // Header Panel
-        JPanel header = new JPanel(new GridLayout(2, 1)); // Changed to 2 rows to fit search bar
+        JPanel header = new JPanel(new GridLayout(2, 1)); 
         header.setBackground(UIConstants.PRIMARY_BLUE);
         
         JLabel title = new JLabel("Employee Dashboard", SwingConstants.CENTER);
@@ -41,7 +41,7 @@ public class EmployeeMainFrame extends BaseFrame {
         title.setFont(new Font("SansSerif", Font.BOLD, 18));
         header.add(title);
 
-        // --- 2. ADD THE SEARCH BAR HERE ---
+        
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         searchPanel.setOpaque(false); // Keeps the blue background
         JLabel lblSearch = new JLabel("Search: ");
@@ -58,11 +58,11 @@ public class EmployeeMainFrame extends BaseFrame {
         tableModel = new DefaultTableModel(columns, 0);
         employeeTable = new JTable(tableModel);
         
-        // --- 3. INITIALIZE THE SORTER ---
+        // INITIALIZE THE SORTER             
         sorter = new TableRowSorter<>(tableModel);
         employeeTable.setRowSorter(sorter);
 
-        // --- 4. ADD SEARCH LOGIC ---
+        // SEARCH LOGIC
         txtSearch.getDocument().addDocumentListener(new DocumentListener() {
             public void insertUpdate(DocumentEvent e) { filter(); }
             public void removeUpdate(DocumentEvent e) { filter(); }
@@ -73,7 +73,7 @@ public class EmployeeMainFrame extends BaseFrame {
                 if (text.trim().length() == 0) {
                     sorter.setRowFilter(null);
                 } else {
-                    // (?i) makes search case-insensitive
+                    
                     sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
                 }
             }
@@ -83,8 +83,7 @@ public class EmployeeMainFrame extends BaseFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    // --- 5. IMPORTANT FIX FOR SEARCHING ---
-                    // convertRowIndexToModel ensures you get the right ID even if filtered
+                    
                     int viewRow = employeeTable.getSelectedRow();
                     if (viewRow != -1) {
                         int modelRow = employeeTable.convertRowIndexToModel(viewRow);
@@ -119,4 +118,5 @@ public class EmployeeMainFrame extends BaseFrame {
             });
         }
     }
+
 }
